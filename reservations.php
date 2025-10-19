@@ -8,9 +8,9 @@ if (!isset($_SESSION['user_id'])) {
 $show_future = isset($_GET['future']);
 $query = $show_future ?
     "SELECT * FROM reservations WHERE start_time > NOW() ORDER BY start_time" : "SELECT * FROM reservations ORDER BY start_time";
-$stmt = $pdo->prepare($query);
-$stmt->execute();
-$reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$soon = $pdo->prepare($query);
+$soon->execute();
+$reservations = $soon->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
