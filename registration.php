@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "All fields are required!";
     } else {
         // Insert user into the database       
-        $stmt = $pdo->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
-        if ($stmt->execute([$username, $password, $email])) {
+        $some = $pdo->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
+        if ($some->execute([$username, $password, $email])) {
             header("Location: login.php");
             exit();
         } else {
