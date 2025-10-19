@@ -4,9 +4,9 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
-    $stmt->execute([$username]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $soon = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+    $soon->execute([$username]);
+    $user = $soon->fetch(PDO::FETCH_ASSOC);
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['userID'];
         header("Location: reserve.php");
